@@ -1,4 +1,25 @@
-body,
+@import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+  overflow: auto;
+}
+
 div,
 ul,
 li,
@@ -9,15 +30,58 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.clear-fix {
+/*.scroller{  
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-scroll-snap-points-y: repeat(100%);
+      -ms-scroll-snap-points-y: repeat(100%);
+          scroll-snap-points-y: repeat(100%);
+  -webkit-scroll-snap-type: mandatory;
+      -ms-scroll-snap-type: mandatory;
+          scroll-snap-type: mandatory;
+  -webkit-scroll-snap-destination: 100% 0%;
+      -ms-scroll-snap-destination: 100% 0%;
+          scroll-snap-destination: 100% 0%;
+}*/
+
+
+#main {
+  width: 100%;
+  margin: auto;
+}
+
+.panel {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.ph {
+  background-color: #484848;
+}
+
+.pw{
+    background-color: #fff;
+}
+
+.content{
+  max-width: 1200px;
+  margin: auto;
+}
+
+/*.clear-fix {
   overflow: auto;
 }
-
+*/
 .education-entry,
 .work-entry,
 .project-entry {
@@ -25,10 +89,9 @@ h6 {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 4em;
   color: #f5a623;
-  line-height: 48px;
-  display: inline;
+  /*line-height: 48px;*/;
 }
 
 h2 {
@@ -57,10 +120,8 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 5%;
 }
-
 
 .date-text {
   font-style: italic;
@@ -76,7 +137,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -94,14 +154,21 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 2.5em;
   color: #f3f3f3;
   line-height: 28px;
+  width: 100%;
+  text-align: center;
 }
 
 #skills-h3 {
   color: #f5ae23;
   display: none;
+}
+
+#topContactsICON {
+  width: 50%;
+  margin: 0 25% 5vh 25%;
 }
 
 .orange {
@@ -120,7 +187,7 @@ a {
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .dark-gray {
@@ -129,7 +196,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  padding: 2em 0 2em 0;
 }
 
 .flex-box {
@@ -138,11 +205,15 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
+  padding: auto;
+}
+
+.flex-item {
+  font-size: 2em;
 }
 
 .center-content {
-  padding: 2.5% 5%;
+  width: 100%;
 }
 
 ul {
@@ -150,10 +221,25 @@ ul {
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
+  margin: 0 auto;
   width: 200px;
-  display: none;
+  display: block;
+  border-radius: 50%;
+}
+
+#name {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+#title {
+  font-size: 2em;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5vh;
+  box-sizing: border-box;
 }
 
 img {
@@ -173,42 +259,42 @@ span {
 @media only screen and (max-width: 1024px) {
   #lets-connect {
     margin-top: 5%;
-  }
+  };
 }
 
 @media only screen and (max-width:900px) {
   .biopic {
-    width: 175px;
-  }
+    width: 50vw;
+  };
 }
 
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
   }
-  .biopic {
-    width: 150px;
-  }
+
   .welcome-message {
     display: none;
-  }
+  };
 }
 
 #map {
   display: block;
-  height: 100%;
+  height: 80%;
   margin: 0 5%;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
+  padding: 0;
   padding-bottom: 5%;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
+  #skills-h3 {
     display: block;
-  }
+  };
 }

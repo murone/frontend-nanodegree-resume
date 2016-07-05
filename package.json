@@ -1,0 +1,25 @@
+{
+  "name": "murone-resume",
+  "version": "1.0.0",
+  "description": "1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select \"View Course Materials.\"\r 2. Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume.\r 3. Review your work against the Project Rubric (on the next page).\r 4. When you are satisfied with your project, submit it according to the Submission Instructions on the next page.",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murone/frontend-nanodegree-resume.git"
+  },
+  "author": "Chris Murone",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/murone/frontend-nanodegree-resume/issues"
+  },
+  "homepage": "https://github.com/murone/frontend-nanodegree-resume#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-csslint": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0"
+  }
+}
