@@ -1,4 +1,4 @@
-## How do I complete this project?
+## How do I complete this project? 
 
 1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
 2. Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume.
