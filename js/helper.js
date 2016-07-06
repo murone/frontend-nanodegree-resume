@@ -12,19 +12,19 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<hr><h2 id="title">%data%</h2>';
+var HTMLheaderName = '<div class="namediv"><h1 id="name">%data%</h1>';
+var HTMLheaderRole = '<h2 id="title">%data%</h2></div>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text"><span class="entypo-twitter white-text" href="http://www.twitter.com/%data%"></span></li>';
-var HTMLlinkedin = '<li class="flex-item"><a class="entypo-linkedin white-text" href="http://www.linkedin.com/in/%data%"></a></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><a class="entypo-github white-text" href="http://www.github.com/%data%"></a></li>';
+var HTMLcontactGeneric = '<li class="flex-item flex-item-text"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item flex-item-text"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item flex-item-icon"><span class="entypo-twitter white-text" href="http://www.twitter.com/%data%"/></li>';
+var HTMLlinkedin = '<li class="flex-item flex-item-icon"><span class="entypo-linkedin white-text" href="http://www.linkedin.com/in/%data%"/></a></li>';
+var HTMLemail = '<li class="flex-item flex-item-text"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item flex-item-icon"><span class="entypo-github white-text" href="http://www.github.com/%data%"/></a></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item flex-item-text"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbioPic = '<div class="picdiv"><img src="%data%" class="biopic"></div>';
 var HTMLwelcomeMsg = '<div class="welcome-message">%data%</div>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';

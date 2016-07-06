@@ -38,13 +38,20 @@ module.exports = function(grunt) {
 			your_target: {
 				// Target-specific file lists and/or options go here. 
 			},
+		},
+		jsbeautifier : {
+		    files : ["src/**/*.js"],
+		    options : {
+		    }
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-autoprefixer');
+	grunt.loadNpmTasks("grunt-jsbeautifier");
 
-	grunt.registerTask('default',['jshint', 'csslint', 'autoprefixer']);
+
+	grunt.registerTask('default',['jshint', 'autoprefixer', 'grunt-jsbeautifier', 'csslint']);
 
 };

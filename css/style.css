@@ -34,28 +34,79 @@ h6 {
   margin: 0;
 }
 
-/*.scroller{  
-  overflow-x: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  -webkit-scroll-snap-points-y: repeat(100%);
-      -ms-scroll-snap-points-y: repeat(100%);
-          scroll-snap-points-y: repeat(100%);
-  -webkit-scroll-snap-type: mandatory;
-      -ms-scroll-snap-type: mandatory;
-          scroll-snap-type: mandatory;
-  -webkit-scroll-snap-destination: 100% 0%;
-      -ms-scroll-snap-destination: 100% 0%;
-          scroll-snap-destination: 100% 0%;
-}*/
-
-
 #main {
   width: 100%;
   margin: auto;
+}
+
+#inner {
+  display: flex;
+  text-align: left;
+  margin: auto;
+}
+
+#inner-wrap {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background-color: #484848;
+  display: inline-block;
+}
+
+#header {
+  padding: 0em 0 2em 0;
+}
+
+.picdiv {
+  width: 15%;
+  border-right: 5px solid #fff;
+  padding-right: 1vw;
+}
+
+.namediv {
+  width: 55%;
+  padding-left: 1vw;
+}
+
+.biopic {
+  margin: 0 auto;
+  width: 20vh;
+  display: block;
+  border-radius: 50%;
+  margin: 1vh;
+  margin-right: 0;
+  padding: 0;
+  float: right;
+}
+
+#name {
+  font-size: 8vh;
+  width: 100%;
+  margin-top: 4.5vh;
+  line-height: 8vh;
+}
+
+#title {
+  font-size: 4vh;
+  margin: 0;
+  width: 100%;
+  margin-top: 1vh;
+  margin-bottom: 4.5vh;
+  box-sizing: border-box;
+  line-height: 4vh;
+}
+
+#topContactsICON {
+  width: 5%;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  vertical-align: middle;
+}
+
+#topContacts {
+  width: 25%;
+  padding: 1vh;
+  border-left: 5px solid #fff;
 }
 
 .panel {
@@ -67,21 +118,20 @@ h6 {
 
 .ph {
   background-color: #484848;
+  padding-top: 22vh;
 }
 
-.pw{
-    background-color: #fff;
+.pw {
+  background-color: #fff;
 }
 
-.content{
+.content {
   max-width: 1200px;
   margin: auto;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
-/*.clear-fix {
-  overflow: auto;
-}
-*/
 .education-entry,
 .work-entry,
 .project-entry {
@@ -91,15 +141,12 @@ h6 {
 h1 {
   font-size: 4em;
   color: #f5a623;
-  /*line-height: 48px;*/;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
   color: #999;
-  line-height: 29px;
-  padding: 10px;
 }
 
 h3 {
@@ -114,13 +161,6 @@ h4 {
   font-size: 14px;
   color: #4a4a4a;
   line-height: 17px;
-}
-
-h2,
-h3,
-h4,
-h5 {
-  padding: 10px 5%;
 }
 
 .date-text {
@@ -148,7 +188,6 @@ p {
 a {
   color: #1199c3;
   text-decoration: none;
-  margin-top: 10px;
   display: block;
 }
 
@@ -159,16 +198,13 @@ a {
   line-height: 28px;
   width: 100%;
   text-align: center;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 #skills-h3 {
   color: #f5ae23;
   display: none;
-}
-
-#topContactsICON {
-  width: 50%;
-  margin: 0 25% 5vh 25%;
 }
 
 .orange {
@@ -180,7 +216,6 @@ a {
 }
 
 .white-text {
-  font-weight: bold;
   color: #fff;
 }
 
@@ -194,11 +229,6 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
-#header {
-  padding: 2em 0 2em 0;
-}
-
 .flex-box {
   display: -webkit-flex;
   display: flex;
@@ -209,7 +239,22 @@ a {
 }
 
 .flex-item {
-  font-size: 2em;
+  font-size: 3vh;
+  width: 100%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  line-height: 5vh;
+}
+
+.flex-item-text {
+  font-size: 3vh;
+  line-height: 5vh;
+}
+
+.flex-item-icon {
+  font-size: 4vh;
+  line-height: 4vh;
+  text-align: center;
 }
 
 .center-content {
@@ -218,28 +263,6 @@ a {
 
 ul {
   list-style-type: none;
-}
-
-.biopic {
-  margin: 0 auto;
-  width: 200px;
-  display: block;
-  border-radius: 50%;
-}
-
-#name {
-  margin: auto;
-  width: 100%;
-  text-align: center;
-}
-
-#title {
-  font-size: 2em;
-  margin: 0;
-  width: 100%;
-  text-align: center;
-  padding: 5vh;
-  box-sizing: border-box;
 }
 
 img {
@@ -262,12 +285,6 @@ span {
   };
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 50vw;
-  };
-}
-
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
@@ -281,15 +298,12 @@ span {
 #map {
   display: block;
   height: 80%;
-  margin: 0 5%;
+  margin: 2%;
 }
 
 #mapDiv {
-  height: 400px;
+  height: 80vh;
   width: 100%;
-  padding: 0;
-  padding-bottom: 5%;
-  height: 100vh;
   box-sizing: border-box;
 }
 
