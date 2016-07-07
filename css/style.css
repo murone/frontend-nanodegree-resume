@@ -34,26 +34,27 @@ h6 {
   margin: 0;
 }
 
-#main {
+.main {
   width: 100%;
   margin: auto;
 }
 
-#inner {
+.inner {
   display: flex;
   text-align: left;
   margin: auto;
 }
 
-#inner-wrap {
+.inner-wrap {
   width: 100%;
   position: fixed;
   top: 0px;
   background-color: #484848;
   display: inline-block;
+  z-index: 100;
 }
 
-#header {
+.header {
   padding: 0em 0 2em 0;
 }
 
@@ -79,14 +80,14 @@ h6 {
   float: right;
 }
 
-#name {
+.name {
   font-size: 8vh;
   width: 100%;
   margin-top: 4.5vh;
   line-height: 8vh;
 }
 
-#title {
+.title {
   font-size: 4vh;
   margin: 0;
   width: 100%;
@@ -96,14 +97,14 @@ h6 {
   line-height: 4vh;
 }
 
-#topContactsICON {
+.topContactsICON {
   width: 5%;
   padding-top: 2vh;
   padding-bottom: 2vh;
   vertical-align: middle;
 }
 
-#topContacts {
+.topContacts {
   width: 25%;
   padding: 1vh;
   border-left: 5px solid #fff;
@@ -202,7 +203,7 @@ a {
   box-sizing: border-box;
 }
 
-#skills-h3 {
+.skills-h3 {
   color: #f5ae23;
   display: none;
 }
@@ -217,6 +218,10 @@ a {
 
 .white-text {
   color: #fff;
+}
+
+.bottom-text{
+  width: 33.333333%;
 }
 
 .gray {
@@ -235,7 +240,6 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: auto;
 }
 
 .flex-item {
@@ -273,20 +277,36 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+.lets-connect {
+  text-align: center;
+}
+
+.lets-connectTEXT {
+  width: 100%;
+  display: flex;
+}
+
+.lets-connectTEXT li {
+  width: 33.33333%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.lets-connectTEXT span {
+  box-sizing: border-box;
   text-align: center;
 }
 
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
-  #lets-connect {
+  .lets-connect {
     margin-top: 5%;
   };
 }
 
 @media only screen and (max-width: 750px) {
-  #lets-connect {
+  .lets-connect {
     margin-top: 10%;
   }
 
@@ -295,13 +315,13 @@ span {
   };
 }
 
-#map {
+.map {
   display: block;
   height: 80%;
   margin: 2%;
 }
 
-#mapDiv {
+.mapDiv {
   height: 80vh;
   width: 100%;
   box-sizing: border-box;

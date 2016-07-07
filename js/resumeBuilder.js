@@ -48,9 +48,9 @@ var bio = {
 		$("#lets-connectICON").append(formattedGithub);
 		$("#lets-connectICON").append(formattedTwitter);
 		$("#lets-connectICON").append(formattedLinkedin);
-		$("#lets-connect").append(formattedEmail);
-		$("#lets-connect").append(formattedMobile);
-		$("#lets-connect").append(formattedLocation);
+		$("#lets-connectTEXT").append(formattedEmail);
+		$("#lets-connectTEXT").append(formattedMobile);
+		$("#lets-connectTEXT").append(formattedLocation);
 	}
 };
 
@@ -123,13 +123,13 @@ var projects = {
 			"title": "Grove City Production Control",
 			"dates": "Oct 2014-March 2015",
 			"description": "We made something that runs a shop",
-			"images": "images/197x148.gif"
+			"images": ["images/197x148.gif", "images/fry.jpg"]
 		},
 		{
 			"title": "Fairchild ERP Conversion",
 			"dates": "October 2013-May 2014",
 			"description": "We put them on Oracle!",
-			"images": "images/fry.jpg"
+			"images": ["images/fry.jpg","images/197x148.gif"]
 		}
 	],
 	display: function () {
@@ -139,9 +139,14 @@ var projects = {
 			var formattedTitle = HTMLprojectTitle.replace("%data%", proj.title);
 			var formattedDate = HTMLprojectDates.replace("%data%", proj.dates);
 			var formattedDescription = HTMLprojectDescription.replace("%data%", proj.description);
-			var formattedImg = HTMLprojectImage.replace("%data%", proj.images);
+			$(".project-entry:last").append(formattedTitle + formattedDate + formattedDescription);
+			proj.images.forEach(function(img) {
+				var formattedImg = HTMLprojectImage.replace("%data%", img);
+				$(".project-entry:last").append(formattedImg);
 
-			$(".project-entry:last").append(formattedTitle + formattedDate + formattedDescription + formattedImg);
+			});
+
+			
 		});
 	}
 };
