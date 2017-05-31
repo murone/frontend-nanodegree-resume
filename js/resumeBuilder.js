@@ -1,60 +1,23 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-var bio = {
-	"name": "Chris Murone",
-	"role": "Lead IT Engineer - Thingworx Visualization",
-	"contacts": {
-		"mobile": "724-372-4984",
-		"email": "c.murone@gmail.com",
-		"github": "murone",
-		"twitter": "@bonesmurones",
-		"location": "Slippery Rock, PA"
+
+
+var model = {
+	"bio": {
+		"name": "Chris Murone",
+		"role": "Lead IT Engineer - Thingworx Visualization",
+		"contacts": {
+			"mobile": "724-372-4984",
+			"email": "c.murone@gmail.com",
+			"github": "murone",
+			"twitter": "@chrismurone",
+			"location": "Slippery Rock, PA"
+		},
+		"welcomeMessage": "Welcome to my resume! It's still a work in progress.",
+		"skills": ["awesomeness", "programming", "teaching", "js"],
+		"biopic": "images/ProfessionalPortrait.jpg"
 	},
-	"welcomeMessage": "Welcome to my resume! It's still a work in progress.",
-	"skills": ["awesomeness", "programming", "teaching", "js"],
-	"biopic": "images/ProfessionalPortrait.jpg",
-	
-	display: function display() {
-		var formattedName = HTMLheaderName.replace("%data%", bio.name);
-		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-		var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.github);
-		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-		var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-		var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
-		$("#inner").prepend(formattedName + formattedRole);
-		$("#inner").prepend(formattedPic);
-		$("#topContactsICON").append(formattedGithub);
-		$("#topContactsICON").append(formattedTwitter);
-		$("#topContactsICON").append(formattedLinkedin);
-		$("#topContacts").append(formattedEmail);
-		$("#topContacts").append(formattedMobile);
-		$("#topContacts").append(formattedLocation);
-		$("#header").append(formattedWelcome);
-		if (bio.skills.length > 0) {
-
-			$("#header").append(HTMLskillsStart);
-			bio.skills.forEach(function(skill) {
-			  var formattedSkill = HTMLskills.replace("%data%", skill);
-				$("#skills").append(formattedSkill);
-			});
-		}
-		$("#mapDiv").append(googleMap);
-		$("#lets-connectICON").append(formattedGithub);
-		$("#lets-connectICON").append(formattedTwitter);
-		$("#lets-connectICON").append(formattedLinkedin);
-		$("#lets-connectTEXT").append(formattedEmail);
-		$("#lets-connectTEXT").append(formattedMobile);
-		$("#lets-connectTEXT").append(formattedLocation);
-	}
-};
-
-var education = {
 	"schools": [
 		{
 			"name": "Robert Morris University",
@@ -87,37 +50,6 @@ var education = {
 			"url": "https://www.iu.edu"
 		}
 	],
-	display: function () {
-
-		education.schools.forEach(function(schools) {
-		  $("#education").append(HTMLschoolStart);
-
-			var formattedSchool = HTMLschoolName.replace("%data%", schools.name).replace("#", schools.url);
-			var formattedDegree = HTMLschoolDegree.replace("%data%", schools.degree);
-			var formattedDate = HTMLworkDates.replace("%data%", schools.dates);
-			var formattedLocation = HTMLworkLocation.replace("%data%", schools.location);
-			var formattedMajor = HTMLschoolMajor.replace("%data%", schools.majors, toString());
-
-			$(".education-entry:last").append(formattedSchool + formattedDegree + formattedDate + formattedLocation + formattedMajor);
-		});
-
-		$("#education").append(HTMLonlineClasses);
-
-		education.onlineCourses.forEach(function(courses) {
-		  $("#education").append(HTMLschoolStart);
-
-			var formattedCourseO = HTMLonlineTitle.replace("%data%", courses.title).replace("#", courses.url);
-			var formattedSchoolO = HTMLonlineSchool.replace("%data%", courses.school);
-			var formattedDateO = HTMLonlineDates.replace("%data%", courses.dates);
-			var formattedURL = HTMLonlineURL.replace("%data%", courses.url).replace("#", courses.url);
-
-			$(".education-entry:last").append(formattedCourseO + formattedSchoolO + formattedDateO + formattedURL);
-		});
-
-	}
-};
-
-var projects = {
 	"projects": [
 		{
 			"title": "Grove City Production Control",
@@ -132,26 +64,6 @@ var projects = {
 			"images": ["images/fry.jpg","images/197x148.gif"]
 		}
 	],
-	display: function () {
-		projects.projects.forEach(function(proj) {
-		  $("#projects").append(HTMLprojectStart);
-
-			var formattedTitle = HTMLprojectTitle.replace("%data%", proj.title);
-			var formattedDate = HTMLprojectDates.replace("%data%", proj.dates);
-			var formattedDescription = HTMLprojectDescription.replace("%data%", proj.description);
-			$(".project-entry:last").append(formattedTitle + formattedDate + formattedDescription);
-			proj.images.forEach(function(img) {
-				var formattedImg = HTMLprojectImage.replace("%data%", img);
-				$(".project-entry:last").append(formattedImg);
-
-			});
-
-			
-		});
-	}
-};
-
-var work = {
 	"jobs": [
 		{
 			"employer": "GE Transportation",
@@ -188,9 +100,114 @@ var work = {
 			"dates": "May 2011 - August 2011",
 			"description": "Did CTO Things"
 		},
-	],
-	display: function () {
-		work.jobs.forEach(function(job) {
+	]
+};
+
+var controller = {
+	init: function() {
+
+    	view.displayBio(model.bio);
+    	view.displayEducation(model.schools,model.onlineCourses);
+    	view.displayProjects(model.projects);
+    	view.displayWork(model.jobs);
+    },
+    locationizer: function(work_obj) {
+		var locArray = [];
+		work_obj.jobs.forEach(function(job){
+			locArray.push(job.location);
+		});
+	}
+};
+
+var view = {
+	init: function() {
+    	
+    },
+    displayBio: function (bio) {
+
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.github);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+		var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+		$("#inner").prepend(formattedName + formattedRole);
+		$("#inner").prepend(formattedPic);
+		$("#topContactsICON").append(formattedGithub);
+		$("#topContactsICON").append(formattedTwitter);
+		$("#topContactsICON").append(formattedLinkedin);
+		$("#topContacts").append(formattedEmail);
+		$("#topContacts").append(formattedMobile);
+		$("#topContacts").append(formattedLocation);
+		$("#header").append(formattedWelcome);
+		if (bio.skills.length > 0) {
+
+			$("#header").append(HTMLskillsStart);
+			bio.skills.forEach(function(skill) {
+			  var formattedSkill = HTMLskills.replace("%data%", skill);
+				$("#skills").append(formattedSkill);
+			});
+		}
+		$("#mapDiv").append(googleMap);
+		$("#lets-connectICON").append(formattedGithub);
+		$("#lets-connectICON").append(formattedTwitter);
+		$("#lets-connectICON").append(formattedLinkedin);
+		$("#lets-connectTEXT").append(formattedEmail);
+		$("#lets-connectTEXT").append(formattedMobile);
+		$("#lets-connectTEXT").append(formattedLocation);
+	},
+	displayEducation:function(schools, courses) {
+
+		schools.forEach(function(schools) {
+		  $("#education").append(HTMLschoolStart);
+
+			var formattedSchool = HTMLschoolName.replace("%data%", schools.name).replace("#", schools.url);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", schools.degree);
+			var formattedDate = HTMLworkDates.replace("%data%", schools.dates);
+			var formattedLocation = HTMLworkLocation.replace("%data%", schools.location);
+			var formattedMajor = HTMLschoolMajor.replace("%data%", schools.majors, toString());
+
+			$(".education-entry:last").append(formattedSchool + formattedDegree + formattedDate + formattedLocation + formattedMajor);
+		});
+
+		$("#education").append(HTMLonlineClasses);
+
+		courses.forEach(function(courses) {
+		  $("#education").append(HTMLschoolStart);
+
+			var formattedCourseO = HTMLonlineTitle.replace("%data%", courses.title).replace("#", courses.url);
+			var formattedSchoolO = HTMLonlineSchool.replace("%data%", courses.school);
+			var formattedDateO = HTMLonlineDates.replace("%data%", courses.dates);
+			var formattedURL = HTMLonlineURL.replace("%data%", courses.url).replace("#", courses.url);
+
+			$(".education-entry:last").append(formattedCourseO + formattedSchoolO + formattedDateO + formattedURL);
+		});
+
+	},
+	displayProjects: function (projects) {
+		projects.forEach(function(proj) {
+		  $("#projects").append(HTMLprojectStart);
+
+			var formattedTitle = HTMLprojectTitle.replace("%data%", proj.title);
+			var formattedDate = HTMLprojectDates.replace("%data%", proj.dates);
+			var formattedDescription = HTMLprojectDescription.replace("%data%", proj.description);
+			$(".project-entry:last").append(formattedTitle + formattedDate + formattedDescription);
+			proj.images.forEach(function(img) {
+				var formattedImg = HTMLprojectImage.replace("%data%", img);
+				$(".project-entry:last").append(formattedImg);
+
+			});
+
+			
+		});
+	},
+	displayWork: function (jobs) {
+		jobs.forEach(function(job) {
 		  $("#workExperience").append(HTMLworkStart);
 
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
@@ -206,17 +223,20 @@ var work = {
 
 function locationizer(work_obj) {
 	var locArray = [];
-	work_obj.jobs.forEach(function(job){
+	work_obj.forEach(function(job){
 		locArray.push(job.location);
 	});
 }
 
 //RUNTIME CALLS
-locationizer(work);
-bio.display();
-work.display();
-projects.display();
-education.display();
+locationizer(model.jobs);
+
+controller.init();
+
+// bio.display();
+// work.display();
+// projects.display();
+// education.display();
 
 $(document).click(function (loc) {
 	var x = loc.pageX;
