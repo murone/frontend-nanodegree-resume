@@ -6,7 +6,7 @@ This is empty on purpose! Your code to build the resume will go here.
 var model = {
 	"bio": {
 		"name": "Chris Murone",
-		"role": "Lead IT Engineer - Thingworx Visualization",
+		"role": "Staff Software Engineer - Brilliant Factory",
 		"contacts": {
 			"mobile": "724-372-4984",
 			"email": "c.murone@gmail.com",
@@ -105,15 +105,16 @@ var model = {
 
 var controller = {
 	init: function() {
-
+		this.locationizer(model.jobs);
     	view.displayBio(model.bio);
     	view.displayEducation(model.schools,model.onlineCourses);
     	view.displayProjects(model.projects);
     	view.displayWork(model.jobs);
+    	view.init();
     },
     locationizer: function(work_obj) {
 		var locArray = [];
-		work_obj.jobs.forEach(function(job){
+		work_obj.forEach(function(job){
 			locArray.push(job.location);
 		});
 	}
@@ -121,7 +122,37 @@ var controller = {
 
 var view = {
 	init: function() {
-    	
+    	$(document).click(function (loc) {
+			var x = loc.pageX;
+			var y = loc.pageY;
+			logClicks(x, y);
+		});
+		var $animation_elements = $('#inner');
+		var $window = $(window);
+
+		$window.on('scroll resize', check_if_in_view);
+		$window.trigger('scroll');
+
+		function check_if_in_view() {
+			var window_height = $window.height();
+			var window_top_position = $window.scrollTop();
+			var window_bottom_position = (window_top_position + window_height);
+
+			$.each($animation_elements, function () {
+				var $element = $(this);
+				var element_height = $element.outerHeight();
+				var element_top_position = $element.offset().top;
+				var element_bottom_position = (element_top_position + element_height);
+
+				//check to see if this current container is within viewport
+				if ((element_bottom_position >= window_top_position) &&
+					(element_top_position <= window_bottom_position)) {
+					$element.addClass('in-view');
+				} else {
+					$element.removeClass('in-view');
+				}
+			});
+		}
     },
     displayBio: function (bio) {
 
@@ -221,52 +252,6 @@ var view = {
 	}
 };
 
-function locationizer(work_obj) {
-	var locArray = [];
-	work_obj.forEach(function(job){
-		locArray.push(job.location);
-	});
-}
-
 //RUNTIME CALLS
-locationizer(model.jobs);
-
 controller.init();
 
-// bio.display();
-// work.display();
-// projects.display();
-// education.display();
-
-$(document).click(function (loc) {
-	var x = loc.pageX;
-	var y = loc.pageY;
-	logClicks(x, y);
-});
-
-var $animation_elements = $('#inner');
-var $window = $(window);
-
-$window.on('scroll resize', check_if_in_view);
-$window.trigger('scroll');
-
-function check_if_in_view() {
-	var window_height = $window.height();
-	var window_top_position = $window.scrollTop();
-	var window_bottom_position = (window_top_position + window_height);
-
-	$.each($animation_elements, function () {
-		var $element = $(this);
-		var element_height = $element.outerHeight();
-		var element_top_position = $element.offset().top;
-		var element_bottom_position = (element_top_position + element_height);
-
-		//check to see if this current container is within viewport
-		if ((element_bottom_position >= window_top_position) &&
-			(element_top_position <= window_bottom_position)) {
-			$element.addClass('in-view');
-		} else {
-			$element.removeClass('in-view');
-		}
-	});
-}

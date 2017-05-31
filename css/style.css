@@ -264,6 +264,9 @@ a {
 .center-content {
   width: 100%;
 }
+.skill{
+  width: 25%;
+}
 
 ul {
   list-style-type: none;
